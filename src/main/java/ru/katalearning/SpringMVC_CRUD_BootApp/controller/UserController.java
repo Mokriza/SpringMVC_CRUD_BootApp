@@ -9,6 +9,7 @@ import ru.katalearning.SpringMVC_CRUD_BootApp.service.UserService;
 
 
 @Controller
+@RequestMapping("/")
 public class UserController {
 
     private final UserService userService;
@@ -18,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public String index(Model model) {
         model.addAttribute("usersList", userService.getAllUsers());
         return "index";
